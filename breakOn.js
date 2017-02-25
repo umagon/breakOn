@@ -12,18 +12,15 @@ function breakOn(obj, propName) {
         if (curObj && typeof curObj === 'object') {
             hasProperty = curObj.hasOwnProperty(curProp); 
 
-            if (hasProperty) {
+            if (hasProperty)
                 propValues[i] = i ? propValues[i - 1][curProp] : curObj[curProp];  
-            }     
 
-            if (!hasProperty || typeof curObj[curProp] !== 'object' || !curObj[curProp] || i === lastIndex) {
+            if (!hasProperty || typeof curObj[curProp] !== 'object' || !curObj[curProp] || i === lastIndex)
                 define(curObj, i);
-            }      
         }
 
-        if (i < lastIndex) {
+        if (i < lastIndex)
             handleProp(propValues[i], ++i);
-        }
     }
 
     function define(obj, i) {
@@ -32,15 +29,13 @@ function breakOn(obj, propName) {
                 return propValues[i];
             },
             set: function (val) {    
-                if (i === lastIndex) {
+                if (i === lastIndex)
                     debugger;            
-                }             
 
                 propValues[i] = val;
 
-                if (val && typeof val === 'object') {
+                if (val && typeof val === 'object')
                     define(val, i + 1)
-                }
             }    
         });
     }
