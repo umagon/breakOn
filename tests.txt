@@ -1,0 +1,36 @@
+//case 1
+var b = {
+  a: {
+    c: 20
+  }
+};
+
+breakOn(b, "a.c.d");
+
+b.a.c = 12;
+b.a.c = 23;
+b.a.c = {};
+
+b.a.c.d = 35;
+
+/*
+//case2
+var b = {
+  a: {
+    c: 20
+  }
+};
+
+breakOn(b, "a");
+b.a = {};
+*/
+
+/*
+//case3
+var b = {
+  a: 10
+};
+
+breakOn(b, "a");
+b.a = {};
+*/
